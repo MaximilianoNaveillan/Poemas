@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div>
+          <h1>MiRed</h1>
+          <h2>Login</h2>
+        </div>
+        <ul>
+          <li><a th:href="@{/dashboard}">Publicación</a></li>
+          <li><a th:href="@{/addpost}">Agregar publicación</a></li>
+          <li><a th:href="@{/login}">Logout</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="card-content">
+        <div class="card">
+          <div class="form-group" id="postsContainer"></div>
+        </div>
+      </section>
+    </main>
+    <script th:src="@{/js/dashboard.js}"></script>
+  </body>
+</html>

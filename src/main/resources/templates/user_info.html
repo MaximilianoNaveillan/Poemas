@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaft.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>título</title>
+  </head>
+  <body>
+    <h1>Información de usuario</h1>
+    <ul>
+      <li>Nombre: <span th:text="${Usuario.firstname}"></span></li>
+      <li>Apellido: <span th:text="${Usuario.lastname}"></span></li>
+      <li>Correo: <span th:text="${Usuario.email}"></span></li>
+      <li>ID: <span th:text="${Usuario.id}"></span></li>
+    </ul>
+  </body>
+</html>

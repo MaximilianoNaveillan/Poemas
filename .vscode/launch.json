@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-SpringbootMiredApplication<springboot-mired>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.mnp.spring.mired.springboot_mired.SpringbootMiredApplication",
+      "projectName": "springboot-mired",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

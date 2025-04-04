@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ver Publicación</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1>MiRed</h1>
+        <ul>
+          <li><a th:href="@{/dashboard}">Publicaciones</a></li>
+          <li><a th:href="@{/addpost}">Agregar publicación</a></li>
+          <li><a th:href="@{/login}">Logout</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="card-content">
+      <div class="card" id="postsContainer ">
+        <h3 id="postTitle">Título del post</h3>
+        <div class="post-image-container">
+        <img
+          id="postImage"
+          alt="Imagen del post"
+          style="max-width: 100%; margin: 20px 0"
+        />
+      </div>
+        <p id="postContent">Contenido del post</p>
+        <small><strong>Categoría:</strong> <span id="postCategory"></small></p>
+      </div>
+    </main>
+    <script th:src="@{/js/viewpost.js}"></script>
+  </body>
+</html>

@@ -1,0 +1,239 @@
+/* Box-sizing global para evitar problemas de layout */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body base */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header/Nav */
+header {
+  padding: 1rem 2rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+nav h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+nav h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+nav ul li {
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+nav ul li:hover {
+  opacity: 0.8;
+}
+
+/* Main container */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Login Card */
+.card-content {
+  margin: auto;
+  max-width: 500px;
+  width: 100%;
+}
+
+.card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #007bff;
+}
+
+/* Form */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none; /* Elimina el subrayado cuando se pasa el ratón por encima */
+  color: inherit; /* Mantiene el color heredado en hover/focus */
+}
+
+/* Submit Button */
+button[type="submit"] {
+  width: 100%;
+  padding: 0.7rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Alerta personalizada */
+.custom-alert {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.custom-alert.visible {
+  opacity: 1;
+}
+
+#postsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+#postsContainer a {
+  display: block;
+  width: 100%;
+  margin: 10px;
+  padding: 0.7rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.post {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  text-align: center;
+}
+
+/* Contenedor de imagen para mantener proporción */
+.post-image-container {
+  position: relative;
+  width: 100%;
+  padding-top: 75%; /* 4:3 ratio, puedes cambiar este valor para otra proporción */
+  background-color: #f0f0f0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.post-image-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+h3 {
+  font-size: 1.5em;
+  margin: 10px 0;
+}
+
+p {
+  font-size: 1em;
+  color: #555;
+  margin: 10px 0;
+}
+
+small {
+  display: block;
+  font-size: 0.9em;
+  color: #777;
+  margin-top: 10px;
+}
+
+.delete-post-btn {
+  padding: 0.6rem 1rem;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+/* Efecto al pasar el mouse sobre el botón de eliminar */
+.delete-post-btn:hover {
+  background-color: #c0392b;
+  transform: scale(1.05);
+}
+
+/* Efecto al hacer clic en el botón de eliminar */
+.delete-post-btn:active {
+  background-color: #e74c3c;
+  transform: scale(0.98);
+}
+
+/* Efecto al enfocarse en el botón de eliminar */
+.delete-post-btn:focus {
+  outline: none;
+  box-shadow: 0 0 3px 2px rgba(231, 76, 60, 0.5);
+}

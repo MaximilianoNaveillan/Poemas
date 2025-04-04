@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Agregar/Editar Publicación</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div>
+          <h1>MiRed</h1>
+          <h2 id="pageTitle">Agregar Publicación</h2>
+        </div>
+        <ul>
+          <li><a th:href="@{/dashboard}">Publicación</a></li>
+          <li><a th:href="@{/addpost}">Agregar publicación</a></li>
+          <li><a th:href="@{/login}">Logout</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="card-content">
+        <div class="card">
+          <h3 id="formHeader">Crear una nueva publicación</h3>
+
+          <form id="addPostForm">
+            <input type="hidden" id="postId" />
+            <!-- Campo oculto para el ID del post a editar -->
+            <div class="form-group">
+              <label for="title">Título:</label>
+              <input type="text" id="title" name="title" required /><br />
+            </div>
+            <div class="form-group">
+              <label for="content">Contenido:</label>
+              <textarea id="content" name="content" required></textarea><br />
+            </div>
+            <div class="form-group">
+              <label for="image">Imagen (URL):</label>
+              <input type="text" id="image" name="image" required /><br />
+            </div>
+            <div class="form-group">
+              <label for="category">Categoría:</label>
+              <input type="text" id="category" name="category" required /><br />
+            </div>
+            <button type="submit" id="submitBtn">Agregar Post</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <script th:src="@{/js/addpost.js}"></script>
+  </body>
+</html>
