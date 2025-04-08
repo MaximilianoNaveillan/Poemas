@@ -1,35 +1,39 @@
 package com.mnp.spring.mired.springboot_mired.models;
 
+import java.util.List;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Users {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;  
 
-    private String  email, password, firstname, lastname;
+    private String email, password, firstname, lastname;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Post> posts;
 
     public Users() {}
 
-    public Users(String email, String password, String firstname, String lastname, int id) {
+    public Users(String email, String password, String firstname, String lastname) {  // Change id parameter to Long
         this.email = email;
         this.password = password;
         this.firstname = firstname;
         this.lastname = lastname;
-        this.id = id;
     }
 
-
-   
-    public int getId() {
+    public Long getId() {  // Change return type to Long
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {  // Change parameter to Long
         this.id = id;
     }
 
@@ -63,5 +67,13 @@ public class Users {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
     }
 }

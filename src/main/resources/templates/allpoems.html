@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Poemas del Autor</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div>
+          <h1>Poemas</h1>
+          <h2 id="welcome">Login</h2>
+        </div>
+        <ul>
+          <li><a th:href="@{/dashboard}">Publicación</a></li>
+          <li><a th:href="@{/addpost}">Agregar publicación</a></li>
+          <li><a th:href="@{/login}">Logout</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="container">
+      <h1>Poemas del Autor</h1>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="poema : ${poems}">
+            <td th:text="${poema.title}">Título</td>
+            <td>
+              <a th:href="@{'/viewpost?id=' + ${poema.id}}">Ver</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

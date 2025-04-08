@@ -1,6 +1,7 @@
 package com.mnp.spring.mired.springboot_mired.controllers;
 
 import com.mnp.spring.mired.springboot_mired.dto.UserLoginDTO;
+import com.mnp.spring.mired.springboot_mired.dto.UserLoginResponseDTO;
 import com.mnp.spring.mired.springboot_mired.dto.UserRegisterDTO;
 import com.mnp.spring.mired.springboot_mired.models.Users;
 import com.mnp.spring.mired.springboot_mired.services.UserService;
@@ -36,36 +37,42 @@ public class AuthController {
         }
 
         // Verificar si el correo ya existe
-        if (userService.findByEmail(userDTO.getEmail()) != null) {
+        if (userService.findByEmail(userDTO.getEmail()).isPresent()) {
             return ResponseEntity.status(400).body(Map.of("message", "El correo electrónico ya está registrado"));
         }
 
         // Convertir DTO a modelo Users
-        Users user = new Users(userDTO.getEmail(), userDTO.getPassword(), userDTO.getFirstname(), userDTO.getLastname(), 0);
-        userService.registUsers(user);
+        //Users user = new Users(userDTO.getEmail(), userDTO.getPassword(), userDTO.getFirstname(), userDTO.getLastname());
+        
+        // Cambiar 'registUsers' a 'registerUser'
+        userService.registerUser(userDTO.getEmail(), userDTO.getPassword(), userDTO.getFirstname(), userDTO.getLastname());
 
         return ResponseEntity.status(201).body(Map.of("message", "Usuario registrado exitosamente"));
     }
 
     // Endpoint para login de usuario
-    @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody @Valid UserLoginDTO loginDTO, BindingResult result) {
-        // Validación de errores
-        if (result.hasErrors()) {
-            Map<String, String> errors = new HashMap<>();
-            result.getFieldErrors().forEach(error ->
-                errors.put(error.getField(), error.getDefaultMessage())
-            );
-            return ResponseEntity.badRequest().body(errors);
-        }
+    // AuthController.java
+    // AuthController.java
+@PostMapping("/login")
+public ResponseEntity<?> login(@RequestBody UserLoginDTO loginDTO) {
+    // Cambiar el nombre del método a authenticateUser
+    Optional<Users> userOptional = userService.authenticateUser(loginDTO.getEmail(), loginDTO.getPassword());
 
-        // Autenticar usuario
-        Optional<Users> user = userService.authenticateUsers(loginDTO.getEmail(), loginDTO.getPassword());
-
-        if (user.isPresent()) {
-            return ResponseEntity.ok(Map.of("message", "Login exitoso", "user", user.get()));
-        } else {
-            return ResponseEntity.status(401).body(Map.of("message", "Credenciales incorrectas"));
-        }
+    if (userOptional.isPresent()) {
+        Users user = userOptional.get();
+        
+        // Convertir el usuario a un DTO de respuesta
+        UserLoginResponseDTO userResponse = new UserLoginResponseDTO(
+            user.getId(),
+            user.getEmail(),
+            user.getFirstname(),
+            user.getLastname()
+        );
+        
+        // Responder con los datos del usuario filtrados
+        return ResponseEntity.ok(Map.of("message", "Login exitoso", "user", userResponse));
+    } else {
+        return ResponseEntity.status(401).body(Map.of("message", "Credenciales incorrectas"));
     }
+}
 }

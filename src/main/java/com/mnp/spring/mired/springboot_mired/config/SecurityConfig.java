@@ -1,4 +1,4 @@
-/* package com.mnp.spring.mired.springboot_mired.config;
+package com.mnp.spring.mired.springboot_mired.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,4 +11,4 @@ public class SecurityConfig {
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-} */
+}

@@ -94,3 +94,52 @@ Una vez ejecutado, puedes acceder a:
 ```
 http://localhost:8080
 ```
+
+# Rutas del Proyecto _Poemas App_
+
+Este documento describe las rutas disponibles tanto en el **frontend** como en el **backend** de la aplicación _Poemas App_.
+
+---
+
+## 🌐 Frontend (Thymeleaf)
+
+### Páginas Disponibles
+
+| Página                        | Ruta                               | Descripción                                                   |
+| ----------------------------- | ---------------------------------- | ------------------------------------------------------------- |
+| **Inicio**                    | `/`                                | Página de bienvenida o redirección.                           |
+| **Login**                     | `/login`                           | Formulario de inicio de sesión.                               |
+| **Registro**                  | `/register`                        | Formulario de registro de nuevos usuarios.                    |
+| **Dashboard**                 | `/dashboard`                       | Listado de publicaciones del usuario autenticado.             |
+| **Agregar Publicación**       | `/addpost`                         | Formulario para crear una nueva publicación.                  |
+| **Ver Publicación**           | `/viewpost?id={postId}`            | Vista detallada de una publicación.                           |
+| **Lista de Poemas por Autor** | `/allpoems/{author}/user/{userId}` | Listado de todos los poemas de un autor específico y usuario. |
+
+---
+
+## 🔌 Backend API REST (Spring Boot)
+
+### Autenticación
+
+| Método | Ruta                 | Descripción                                                      |
+| ------ | -------------------- | ---------------------------------------------------------------- |
+| `POST` | `/api/auth/register` | Registro de nuevos usuarios.                                     |
+| `POST` | `/api/auth/login`    | Inicio de sesión de usuario. Retorna un token y datos de sesión. |
+
+### Publicaciones (Poemas)
+
+| Método   | Ruta                                          | Descripción                                                             |
+| -------- | --------------------------------------------- | ----------------------------------------------------------------------- |
+| `GET`    | `/api/posts`                                  | Obtener todas las publicaciones.                                        |
+| `GET`    | `/api/posts/{id}`                             | Obtener una publicación por su ID.                                      |
+| `POST`   | `/api/posts`                                  | Crear una nueva publicación.                                            |
+| `DELETE` | `/api/posts/{id}`                             | Eliminar una publicación por su ID.                                     |
+| `GET`    | `/api/posts/by-author/{author}/user/{userId}` | Obtener todas las publicaciones de un autor para un usuario específico. |
+
+---
+
+## 🗂️ Notas
+
+- **Rutas protegidas**: Asegúrate de que el usuario esté autenticado para acceder a las rutas que requieren sesión.
+- **`localStorage`**: El nombre de usuario actual se guarda en `localStorage` bajo la clave `"username"`.
+- **Eliminación de publicaciones**: Requiere confirmación del usuario antes de ejecutar la eliminación.

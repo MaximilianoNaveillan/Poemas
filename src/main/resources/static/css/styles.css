@@ -162,31 +162,11 @@ button[type="submit"]:hover {
 }
 
 .post {
-  background-color: #fff;
+  background-color: #ddd;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 10px;
+  padding: 20px;
   text-align: center;
-}
-
-/* Contenedor de imagen para mantener proporción */
-.post-image-container {
-  position: relative;
-  width: 100%;
-  padding-top: 75%; /* 4:3 ratio, puedes cambiar este valor para otra proporción */
-  background-color: #f0f0f0;
-  overflow: hidden;
-  border-radius: 8px;
-}
-
-.post-image-container img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
 }
 
 h3 {
@@ -236,4 +216,60 @@ small {
 .delete-post-btn:focus {
   outline: none;
   box-shadow: 0 0 3px 2px rgba(231, 76, 60, 0.5);
+}
+
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #fde992;
+}
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #2c3e50;
+  text-align: left;
+  padding: 12px;
+  border-bottom: 2px solid #ccc;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.actions {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.view-more-link {
+  padding: 10px 16px;
+  background-color: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.view-more-link:hover {
+  background-color: #2980b9;
 }

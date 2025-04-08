@@ -19,16 +19,29 @@
 
     <main class="card-content">
       <div class="card" id="postsContainer ">
-        <h3 id="postTitle">Título del post</h3>
-        <div class="post-image-container">
-        <img
-          id="postImage"
-          alt="Imagen del post"
-          style="max-width: 100%; margin: 20px 0"
-        />
+        <h3 id="postTitle"></h3>
+        <p style="display: flex">
+          <span style="width: 100px">Agregado por</span
+          ><span>: <strong id="postUser"></strong></span>
+        </p>
+        <p style="display: flex">
+          <span style="width: 100px">Author</span
+          ><span>: <strong id="postAuthor"></strong></span>
+        </p>
+        <p style="display: flex">
+          <span style="width: 100px">Año</span
+          ><span>: <strong id="postYear"></strong></span>
+        </p>
+        <p style="display: flex">
+          <span style="width: 100px">Letra</span
+          ><span>: <strong id="postContent"></strong></span>
+        </p>
       </div>
-        <p id="postContent">Contenido del post</p>
-        <small><strong>Categoría:</strong> <span id="postCategory"></small></p>
+      <div class="actions">
+        <button class="delete-post-btn">Eliminar poema</button>
+        <a id="viewMoreBtn" href="#" class="view-more-link"
+          >Ver más del autor</a
+        >
       </div>
     </main>
     <script th:src="@{/js/viewpost.js}"></script>

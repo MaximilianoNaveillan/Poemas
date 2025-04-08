@@ -2,15 +2,15 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
-    <title>Agregar/Editar Publicación</title>
+    <title>Agregar/Editar Poema</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}" />
   </head>
   <body>
     <header>
       <nav>
         <div>
-          <h1>MiRed</h1>
-          <h2 id="pageTitle">Agregar Publicación</h2>
+          <h1>Poemas</h1>
+          <h2 id="pageTitle">Agregar Poemas</h2>
         </div>
         <ul>
           <li><a th:href="@{/dashboard}">Publicación</a></li>
@@ -36,14 +36,14 @@
               <textarea id="content" name="content" required></textarea><br />
             </div>
             <div class="form-group">
-              <label for="image">Imagen (URL):</label>
-              <input type="text" id="image" name="image" required /><br />
+              <label for="author">autor:</label>
+              <input type="text" id="author" name="author" required /><br />
             </div>
             <div class="form-group">
-              <label for="category">Categoría:</label>
-              <input type="text" id="category" name="category" required /><br />
+              <label for="year">año:</label>
+              <input type="number" id="year" name="year" required /><br />
             </div>
-            <button type="submit" id="submitBtn">Agregar Post</button>
+            <button type="submit" id="submitBtn">Agregar Poema</button>
           </form>
         </div>
       </section>

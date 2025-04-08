@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Elimina el 'username' del localStorage al cargar la página
   localStorage.removeItem("username");
+  localStorage.removeItem("key");
 
   const form = document.querySelector("form"); // Asegúrate de seleccionar el formulario correctamente
   const alertBox = document.createElement("div");
@@ -31,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Si la respuesta es exitosa
         // Guarda el nombre del usuario y otros datos en LocalStorage
         localStorage.setItem("username", data.user.firstname);
+        localStorage.setItem("key", data.user.id);
         showAlert("Login exitoso ✔️");
 
         setTimeout(() => {
